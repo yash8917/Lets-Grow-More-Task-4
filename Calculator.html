@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>CALCULATOR</title>
+    <style>
+        body{
+            background: linear-gradient(95deg, rgb(23, 195, 46) 0%,
+                                     rgb(12, 234, 227) 50%, 
+                                     rgba(252,176,69,1) 90%);
+        }
+
+        
+
+        .calculator{
+
+          background-image: url("https://library.williams.edu/files/2018/05/wideangle2_1-1-683x1024.jpg");
+          background-position: center;
+          margin:100px auto;
+          height:400px;
+          width:500px;
+          background-size: cover;
+          border:3mm ridge rgb(226, 157, 138);
+        }
+       
+        #calculateResult{
+        background-color:rgb(19, 18, 18);
+         
+        color: rgb(251, 243, 243);
+        height:40px;
+        width:480px;
+        padding:5px;
+        border-radius: 20px;
+        
+        margin-top: 3px;
+        border: 2px solid black;
+        margin-bottom: 5px;
+        margin-left:3px;
+
+        font-size: 25px;
+        border:white;
+        }
+
+       
+
+        button{
+        line-height: 4;
+        border-radius: 10px;
+        width:50px;
+        text-align: center;
+        margin-left: 20px;
+        background-color: rgb(7, 7, 7);
+        box-shadow: inset 2px 3px 4px rgb(57, 58, 60);
+        width:60px;
+        color: whitesmoke;
+        border: grey;
+        
+        }
+
+
+       
+       
+        button:hover{
+        background-color: rgb(176, 168, 168);
+       }
+       button:active{
+        box-shadow: inset -2px -2px 3px rgb(108, 102, 102);
+       }
+       
+      
+       
+    </style>
+</head>
+<body>
+    
+    <div class="calculator">
+        <div>
+            <input  type="text"  id="calculateResult" placeholder="00" /> 
+        
+        </div>
+        <table>
+    <div>
+        <tr>
+            <td><button  id="clear">AC</button> </td>
+            <td><button class ="button"  >%</button> </td>
+            <td><button class ="button" >/</button> </td>
+            
+           </tr>
+    </div>
+   
+    <div> 
+        <tr>
+            <td><button class ="button" >7</button> </td>
+            <td><button class ="button"  >8</button> </td>
+            <td><button class ="button" >9</button></td>
+            <td><button class ="button" >-</button> </td>
+            
+           </tr>
+    </div>
+  
+   <div>
+    <tr>
+        <td><button class ="button"  >4</button> </td>
+        <td><button class ="button"  > 5</button></td>
+        <td><button class ="button"  >6 </button></td>
+        <td><button class ="button" >+</button> </td>
+        
+       </tr>
+   </div>
+  
+   <div>
+    <tr>
+        <td><button class ="button"   >1</button> </td>
+        <td><button  class ="button"   >2 </button> </td>
+        <td><button class ="button"  >3</button> </td>
+        <td><button class ="button"  > *</button></td>
+        
+       </tr>
+    </div>
+   
+    
+    <div>
+        <tr>
+         <td><button class ="button">0</button> </td>
+         <td><button class ="button" >00</button> </td>
+         <td><button class="button" >.</button> </td>
+         <td><button class ="button"  id="equal">= </button></td>
+         
+        </tr>
+        </div>
+        </table>
+    </div>
+
+    <script>
+        let screen=document.getElementById('calculateResult')
+        let buttonDiv=document.querySelectorAll('button')  //it selects all 
+        let screen_display=''
+      
+        for( let items of buttonDiv)
+        {
+            items.addEventListener('click' , (e) =>{
+              let  buttonText=e.target.innerText;
+             
+                 if(buttonText=='AC')
+                 {
+                    screen_display='';
+                    screen.value=screen_display;
+                 }
+                else if(buttonText=='=')
+                 {
+                   
+                    screen.value=eval(screen_display);
+                 }
+                 else {
+                    screen_display+=buttonText;
+                    screen.value=screen_display;
+                 }
+                
+            })
+        }
+        
+
+    </script>
+</body>
+</html>
